@@ -1,20 +1,33 @@
 import express, { type NextFunction, type Request, type Response } from 'express'
-import bodyParser from 'body-parser'
+// import bodyParser from 'body-parser'
+import { I18n } from 'i18n'
+import YAML from 'yaml'
 
+import locals from './locals'
 import { sequelize } from './db'
 import { ProgramRouter } from './routes/programs.router'
 import { ExerciseRouter } from './routes/exercises.router'
 
 const app = express()
 
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true }))
+const i18n = new I18n({
+  locales: ['sk', 'en'],
+  extension: '.yml',
+  directory: './locales',
+  parser: YAML,
+  objectNotation: true,
+})
+
+app.use(i18n.init)
+app.use(locals)
+// app.use(bodyParser.json())
+// app.use(bodyParser.urlencoded({ extended: true }))
 app.use('/programs', ProgramRouter)
 app.use('/exercises', ExerciseRouter)
 
 app.use((_req: Request, res: Response) => {
   res.status(404)
-  throw new Error('Route not found')
+  throw new Error('error.404'.t)
 })
 
 app.use((err: any, req: Request, res: Response, _next: NextFunction) => {

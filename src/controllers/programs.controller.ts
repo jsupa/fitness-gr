@@ -9,7 +9,7 @@ const index = async (_req: Request, res: Response, _next: NextFunction) => {
 
   return res.json({
     data: programs,
-    message: 'List of programs',
+    message: 'programs.index'.t,
   })
 }
 
