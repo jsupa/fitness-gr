@@ -2,11 +2,25 @@ error:
  "404": Page not found
  password_required: Password is required
  password_too_short: Password is too short (minimum is 8 characters)
- invalid_credentials: error.invalid_credentials
- unauthorized: error.unauthorized
+ invalid_credentials: Invalid credentials
+ unauthorized: Unauthorized
+ not_found: Not found
+ invalid_data: Invalid data
+ program_not_found: Program not found
 programs:
  index: List of programs
-user_created: user_created
-login_success: login_success
+ show: Show program
+ updated: Program updated
+ destroyed: programs.destroyed
+ created: programs.created
+user_created: User created
+login_success: Logged in successfully
 profile:
- me: profile.me
+ me: My profile
+exercises:
+ show: exercises.show
+ updated: exercises.updated
+ created: exercises.created
+ index: exercises.index
+users:
+ index: users.index

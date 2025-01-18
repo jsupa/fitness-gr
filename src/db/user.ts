@@ -5,7 +5,6 @@ import { ProgramModel } from './program'
 import { faker } from '@faker-js/faker'
 import crypto from 'crypto'
 
-import { EXERCISE_DIFFICULTY } from '../utils/enums'
 import config from '../config'
 
 export class UserModel extends Model {
@@ -18,7 +17,6 @@ export class UserModel extends Model {
   role: String
   encryptedPassword: String
 
-  isAdmin: () => boolean
   static findByEmail: (email: string, password: string) => Promise<UserModel | null>
 }
 
@@ -72,11 +70,6 @@ export default (sequelize: Sequelize) => {
   )
 
   return UserModel
-}
-
-// user.isAdmin function
-UserModel.prototype.isAdmin = function () {
-  return this.role === 'ADMIN'
 }
 
 // user.findByEmail(email, password)

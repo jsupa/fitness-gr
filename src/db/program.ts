@@ -2,12 +2,12 @@
 
 import { Sequelize, DataTypes } from 'sequelize'
 import { Model } from 'sequelize'
-import { EXERCISE_DIFFICULTY } from '../utils/enums'
+// import { EXERCISE_DIFFICULTY } from '../utils/enums'
 import { ExerciseModel } from './exercise'
 
 export class ProgramModel extends Model {
   id: number
-  difficulty: EXERCISE_DIFFICULTY
+  // difficulty: EXERCISE_DIFFICULTY
   name: String
 
   exercises: ExerciseModel[]
@@ -35,13 +35,13 @@ export default (sequelize: Sequelize) => {
     },
   )
 
-  ProgramModel.associate = (models) => {
-    ;(ProgramModel as any).hasMany(models.Exercise, {
+  ProgramModel.associate = (models: any) => {
+    ProgramModel.hasMany(models.Exercise, {
       foreignKey: {
         name: 'programID',
         allowNull: false,
       },
-      as: 'translations',
+      as: 'exercises',
     })
   }
 
