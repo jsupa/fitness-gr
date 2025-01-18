@@ -1,12 +1,17 @@
 import express, { type NextFunction, type Request, type Response } from 'express'
 // import bodyParser from 'body-parser'
+import passport from 'passport'
 import { I18n } from 'i18n'
 import YAML from 'yaml'
 
+import './passport'
 import locals from './locals'
 import { sequelize } from './db'
+
 import { ProgramRouter } from './routes/programs.router'
 import { ExerciseRouter } from './routes/exercises.router'
+import { LoginRouter } from './routes/login.router'
+import { ProfileRouter } from './routes/profile.router'
 
 const app = express()
 
@@ -18,10 +23,16 @@ const i18n = new I18n({
   objectNotation: true,
 })
 
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
+
+app.use(passport.initialize())
 app.use(i18n.init)
 app.use(locals)
-// app.use(bodyParser.json())
-// app.use(bodyParser.urlencoded({ extended: true }))
+
+// Routes
+app.use('/login', LoginRouter)
+app.use('/profile', ProfileRouter)
 app.use('/programs', ProgramRouter)
 app.use('/exercises', ExerciseRouter)
 
@@ -32,8 +43,9 @@ app.use((_req: Request, res: Response) => {
 
 app.use((err: any, req: Request, res: Response, _next: NextFunction) => {
   const statusCode = res.statusCode || 500
+  const field = err.field || 'error'
 
-  res.status(statusCode).json({ code: statusCode, message: err.message })
+  res.status(statusCode).json({ code: statusCode, field, message: err.message })
 })
 
 sequelize.sync()

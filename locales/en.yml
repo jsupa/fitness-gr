@@ -1,4 +1,11 @@
 error:
  "404": Page not found
+ password_required: Password is required
+ password_too_short: Password is too short (minimum is 8 characters)
+ invalid_credentials: error.invalid_credentials
 programs:
  index: List of programs
+user_created: user_created
+login_success: login_success
+profile:
+ me: profile.me

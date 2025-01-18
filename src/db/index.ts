@@ -8,11 +8,15 @@ import { Sequelize } from 'sequelize'
 
 import defineExercise from './exercise'
 import defineProgram from './program'
+import defineUser from './user'
 
-const sequelize: Sequelize = new Sequelize('fitness_app', 'postgres', 'postgres', {
-  host: 'localhost',
+import config from '../config'
+const { database, username, password, host, logging } = config.db
+
+const sequelize: Sequelize = new Sequelize(database, username, password, {
+  host: host,
   dialect: 'postgres',
-  logging: false,
+  logging: logging,
 })
 
 sequelize.authenticate().catch((e: any) => console.error(`Unable to connect to the database${e}.`))
@@ -21,6 +25,7 @@ const modelsBuilder = (instance: Sequelize) => ({
   // Import models to sequelize
   Exercise: defineExercise(instance),
   Program: defineProgram(instance),
+  User: defineUser(instance),
 })
 
 const models = modelsBuilder(sequelize)
