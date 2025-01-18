@@ -14,6 +14,7 @@ import { ProgramRouter } from './routes/programs.router'
 import { ExerciseRouter } from './routes/exercises.router'
 import { LoginRouter } from './routes/login.router'
 import { ProfileRouter } from './routes/profile.router'
+import { UsersRouter } from './routes/users.router'
 
 const app = express()
 
@@ -36,6 +37,7 @@ app.use(locals)
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swagger))
 app.use('/login', LoginRouter)
 app.use('/profile', ProfileRouter)
+app.use('/users', UsersRouter)
 app.use('/programs', ProgramRouter)
 app.use('/exercises', ExerciseRouter)
 

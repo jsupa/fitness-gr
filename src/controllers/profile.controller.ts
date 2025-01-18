@@ -1,6 +1,6 @@
-import type { NextFunction, Request, Response } from 'express'
+import type { Request, Response } from 'express'
 
-const me = async (req: Request, res: Response, _next: NextFunction) => {
+const me = async (req: Request, res: Response) => {
   return res.json({
     data: req.user,
     message: 'profile.me'.t,

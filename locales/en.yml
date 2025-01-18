@@ -7,6 +7,7 @@ error:
  not_found: Not found
  invalid_data: Invalid data
  program_not_found: Program not found
+ nonrights: error.nonrights
 programs:
  index: List of programs
  show: Show program
@@ -24,3 +25,5 @@ exercises:
  index: exercises.index
 users:
  index: users.index
+ show: users.show
+ updated: users.updated
