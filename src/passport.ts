@@ -16,7 +16,7 @@ const jwtStrategy = new JwtStrategy(
     try {
       console.log('payload', payload)
 
-      const user = await User.findByPk(payload.id)
+      const user = await User.findByPk(payload.id, { raw: true })
 
       if (user) return done(null, user)
       else return done(null, false)
@@ -32,6 +32,8 @@ export const auth = (req: Request, res: Response, next: NextFunction) =>
   passport.authenticate('jwt', { session: false }, (err: any, user: any) => {
     if (err) throw new Error(err)
     if (!user) throw new Error('error.unauthorized'.t)
+
+    req.login(user, { session: false }, (error) => console.log)
 
     next()
   })(req, res, next)

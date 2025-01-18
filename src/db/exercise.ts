@@ -38,8 +38,8 @@ export default (sequelize: Sequelize) => {
     },
   )
 
-  ExerciseModel.associate = (models) => {
-    ;(ExerciseModel as any).belongsTo(models.Program, {
+  ExerciseModel.associate = (models: any) => {
+    ExerciseModel.belongsTo(models.Program, {
       foreignKey: {
         name: 'programID',
         allowNull: false,
