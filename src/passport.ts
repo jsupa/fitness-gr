@@ -3,6 +3,7 @@ import passport from 'passport'
 import { Strategy as JwtStrategy, ExtractJwt } from 'passport-jwt'
 import config from './config'
 import { models } from './db'
+import type { NextFunction, Request, Response } from 'express'
 
 const { User } = models
 
@@ -27,4 +28,10 @@ const jwtStrategy = new JwtStrategy(
 
 passport.use('jwt', jwtStrategy)
 
-export const auth = passport.authenticate('jwt', { session: false })
+export const auth = (req: Request, res: Response, next: NextFunction) =>
+  passport.authenticate('jwt', { session: false }, (err: any, user: any) => {
+    if (err) throw new Error(err)
+    if (!user) throw new Error('error.unauthorized'.t)
+
+    next()
+  })(req, res, next)

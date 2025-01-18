@@ -3,6 +3,7 @@ error:
  password_required: Password is required
  password_too_short: Password is too short (minimum is 8 characters)
  invalid_credentials: error.invalid_credentials
+ unauthorized: error.unauthorized
 programs:
  index: List of programs
 user_created: user_created

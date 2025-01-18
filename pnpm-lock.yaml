@@ -87,6 +87,9 @@ devDependencies:
   '@types/swagger-jsdoc':
     specifier: ^6.0.4
     version: 6.0.4
+  '@types/swagger-ui-express':
+    specifier: ^4.1.7
+    version: 4.1.7
   '@typescript-eslint/eslint-plugin':
     specifier: ^4.33.0
     version: 4.33.0(@typescript-eslint/parser@4.33.0)(eslint@9.18.0)(typescript@5.7.3)
@@ -687,6 +690,13 @@ packages:
 
   /@types/swagger-jsdoc@6.0.4:
     resolution: {integrity: sha512-W+Xw5epcOZrF/AooUM/PccNMSAFOKWZA5dasNyMujTwsBkU74njSJBpvCCJhHAJ95XRMzQrrW844Btu0uoetwQ==}
+    dev: true
+
+  /@types/swagger-ui-express@4.1.7:
+    resolution: {integrity: sha512-ovLM9dNincXkzH4YwyYpll75vhzPBlWx6La89wwvYH7mHjVpf0X0K/vR/aUM7SRxmr5tt9z7E5XJcjQ46q+S3g==}
+    dependencies:
+      '@types/express': 5.0.0
+      '@types/serve-static': 1.15.7
     dev: true
 
   /@types/validator@13.12.2:

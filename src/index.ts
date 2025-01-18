@@ -3,10 +3,12 @@ import express, { type NextFunction, type Request, type Response } from 'express
 import passport from 'passport'
 import { I18n } from 'i18n'
 import YAML from 'yaml'
+import swaggerUi from 'swagger-ui-express'
 
 import './passport'
 import locals from './locals'
 import { sequelize } from './db'
+import swagger from './swagger'
 
 import { ProgramRouter } from './routes/programs.router'
 import { ExerciseRouter } from './routes/exercises.router'
@@ -31,6 +33,7 @@ app.use(i18n.init)
 app.use(locals)
 
 // Routes
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swagger))
 app.use('/login', LoginRouter)
 app.use('/profile', ProfileRouter)
 app.use('/programs', ProgramRouter)
