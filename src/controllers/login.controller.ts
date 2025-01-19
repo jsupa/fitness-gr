@@ -1,4 +1,4 @@
-import type { NextFunction, Request, Response } from 'express'
+import type { Request, Response } from 'express'
 import jwt from 'jsonwebtoken'
 
 import { models } from './../db'
@@ -8,7 +8,7 @@ import config from '../config'
 
 const { User } = models
 
-const login = async (req: Request, res: Response, _next: NextFunction) => {
+const login = async (req: Request, res: Response) => {
   const { email, password } = req.body
 
   const user = await User.findByEmail(email, password)
@@ -22,7 +22,7 @@ const login = async (req: Request, res: Response, _next: NextFunction) => {
   res.json({ message: 'login_success'.t, accessToken, refreshToken })
 }
 
-const register = async (req: Request, res: Response, _next: NextFunction) => {
+const register = async (req: Request, res: Response) => {
   const { name, surname, nickname, email, age, role, password } = req.body
 
   if (!password) throw new EZError('error.password_required'.t, 'password')
@@ -47,7 +47,25 @@ const register = async (req: Request, res: Response, _next: NextFunction) => {
   res.json({ message: 'user_created'.t, accessToken, refreshToken })
 }
 
-export default { login, register }
+const refresh = async (req: Request, res: Response) => {
+  const { refreshtoken } = req.body
+
+  if (!refreshtoken) throw new EZError('error.refresh_token_required'.t, 'refreshToken')
+
+  const payload = jwt.verify(refreshtoken, config.refreshTokenSecret) as { id: number }
+
+  const user = await User.findOne({ where: { id: payload.id, refreshToken: refreshtoken } })
+
+  if (!user) throw new EZError('error.invalid_refresh_token'.t, 'refreshtoken')
+
+  const { accessToken, refreshToken } = generateTokens(user)
+
+  await user.update({ refreshToken })
+
+  res.json({ message: 'refreshed'.t, accessToken, refreshToken })
+}
+
+export default { login, register, refresh }
 
 const generateTokens = (user: UserModel) => {
   const { id } = user.toJSON()

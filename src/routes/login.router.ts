@@ -5,6 +5,7 @@ export const LoginRouter = Router()
 
 LoginRouter.post('/', controller.login)
 LoginRouter.post('/register', controller.register)
+LoginRouter.post('/refresh', controller.refresh)
 
 /**
  * @openapi
@@ -90,6 +91,35 @@ LoginRouter.post('/register', controller.register)
  *          type: string
  *          required: true
  *          default: password
+ *   responses:
+ *     200:
+ *       description: Success
+ *
+ * /login/refresh:
+ *  post:
+ *   tags: [Login]
+ *   security: []
+ *   summary: Refresh
+ *   description: Refresh token
+ *   parameters:
+ *    - in: header
+ *      name: Accept-Language
+ *      required: true
+ *      schema:
+ *        type: string
+ *        enum: [en, sk]
+ *   requestBody:
+ *    description: Refresh token object
+ *    required: true
+ *    content:
+ *     application/json:
+ *      schema:
+ *       type: object
+ *       properties:
+ *        refreshtoken:
+ *         type: string
+ *         required: true
+ *         default: some_refresh_token
  *   responses:
  *     200:
  *       description: Success

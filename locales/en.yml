@@ -8,6 +8,7 @@ error:
  invalid_data: Invalid data
  program_not_found: Program not found
  nonrights: error.nonrights
+ invalid_refresh_token: error.invalid_refresh_token
 programs:
  index: List of programs
  show: Show program
@@ -27,3 +28,4 @@ users:
  index: users.index
  show: users.show
  updated: users.updated
+refreshed: refreshed
