@@ -7,26 +7,26 @@ error:
  not_found: Not found
  invalid_data: Invalid data
  program_not_found: Program not found
- nonrights: error.nonrights
- invalid_refresh_token: error.invalid_refresh_token
+ nonrights: You don't have rights to do this
+ invalid_refresh_token: Invalid refresh token
 programs:
  index: List of programs
  show: Show program
  updated: Program updated
- destroyed: programs.destroyed
- created: programs.created
+ destroyed: Program destroyed
+ created: Program created
 user_created: User created
 login_success: Logged in successfully
 profile:
  me: My profile
 exercises:
- show: exercises.show
- updated: exercises.updated
- created: exercises.created
- index: exercises.index
- search: exercises.search
+ show: Exercise details
+ updated: Exercise updated
+ created: Exercise created
+ index: List of exercises
+ search: Search exercises
 users:
- index: users.index
- show: users.show
- updated: users.updated
-refreshed: refreshed
+ index: List of users
+ show: Show user
+ updated: User updated
+refreshed: Token refreshed

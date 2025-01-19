@@ -1,2 +1,32 @@
 error:
- unauthorized: Neautorizovaný prístup
+ "404": Stránka sa nenašla
+ password_required: Heslo je povinné
+ password_too_short: Heslo je príliš krátke (minimálne 8 znakov)
+ invalid_credentials: Neplatné prihlasovacie údaje
+ unauthorized: Neoprávnený prístup
+ not_found: Nenájdené
+ invalid_data: Neplatné údaje
+ program_not_found: Program nebol nájdený
+ nonrights: Nemáte práva na vykonanie tejto akcie
+ invalid_refresh_token: Neplatný refresh token
+programs:
+ index: Zoznam programov
+ show: Zobraziť program
+ updated: Program aktualizovaný
+ destroyed: Program vymazaný
+ created: Program vytvorený
+user_created: Používateľ vytvorený
+login_success: Úspešne prihlásený
+profile:
+ me: Môj profil
+exercises:
+ show: Detaily cviku
+ updated: Cvik aktualizovaný
+ created: Cvik vytvorený
+ index: Zoznam cvikov
+ search: Hľadať cviky
+users:
+ index: Zoznam používateľov
+ show: Zobraziť používateľa
+ updated: Používateľ aktualizovaný
+refreshed: Token obnovený
