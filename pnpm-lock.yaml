@@ -31,6 +31,9 @@ dependencies:
   express:
     specifier: ^5.0.1
     version: 5.0.1
+  express-validator:
+    specifier: ^7.2.1
+    version: 7.2.1
   i18n:
     specifier: ^0.15.1
     version: 0.15.1
@@ -2263,6 +2266,14 @@ packages:
       d: 1.0.2
       es5-ext: 0.10.64
     dev: true
+
+  /express-validator@7.2.1:
+    resolution: {integrity: sha512-CjNE6aakfpuwGaHQZ3m8ltCG2Qvivd7RHtVMS/6nVxOM7xVGqr4bhflsm4+N5FP5zI7Zxp+Hae+9RE+o8e3ZOQ==}
+    engines: {node: '>= 8.0.0'}
+    dependencies:
+      lodash: 4.17.21
+      validator: 13.12.0
+    dev: false
 
   /express@5.0.1:
     resolution: {integrity: sha512-ORF7g6qGnD+YtUG9yx4DFoqCShNMmUKiXuT5oWMHiOvt/4WFbHC6yCwQMTSBMno7AqntNCAzzcnnjowRkTL9eQ==}

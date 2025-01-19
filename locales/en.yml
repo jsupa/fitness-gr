@@ -9,6 +9,12 @@ error:
  program_not_found: Program not found
  nonrights: You don't have rights to do this
  invalid_refresh_token: Invalid refresh token
+ email_required: error.email_required
+ email_invalid: error.email_invalid
+ role_invalid: error.role_invalid
+ refresh_token_required: error.refresh_token_required
+ page_invalid: error.page_invalid
+ must_be_int: error.must_be_int
 programs:
  index: List of programs
  show: Show program

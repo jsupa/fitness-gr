@@ -9,6 +9,7 @@ error:
  program_not_found: Program nebol nájdený
  nonrights: Nemáte práva na vykonanie tejto akcie
  invalid_refresh_token: Neplatný refresh token
+ email_invalid: error.email_invalid
 programs:
  index: Zoznam programov
  show: Zobraziť program

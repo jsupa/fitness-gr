@@ -25,9 +25,6 @@ const login = async (req: Request, res: Response) => {
 const register = async (req: Request, res: Response) => {
   const { name, surname, nickname, email, age, role, password } = req.body
 
-  if (!password) throw new EZError('error.password_required'.t, 'password')
-  if (password.length < 8) throw new EZError('error.password_too_short'.t, 'password')
-
   const encryptedPassword = encryptPassword(password)
 
   const user = await User.create({
@@ -49,8 +46,6 @@ const register = async (req: Request, res: Response) => {
 
 const refresh = async (req: Request, res: Response) => {
   const { refreshtoken } = req.body
-
-  if (!refreshtoken) throw new EZError('error.refresh_token_required'.t, 'refreshToken')
 
   const payload = jwt.verify(refreshtoken, config.refreshTokenSecret) as { id: number }
 

@@ -1,11 +1,12 @@
 import { Router } from 'express'
 import controller from '../controllers/login.controller'
+import { loginValidator, refreshValidator, registerValidator } from '../validators/login.validator'
 
 export const LoginRouter = Router()
 
-LoginRouter.post('/', controller.login)
-LoginRouter.post('/register', controller.register)
-LoginRouter.post('/refresh', controller.refresh)
+LoginRouter.post('/', loginValidator, controller.login)
+LoginRouter.post('/register', registerValidator, controller.register)
+LoginRouter.post('/refresh', refreshValidator, controller.refresh)
 
 /**
  * @openapi

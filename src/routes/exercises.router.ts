@@ -1,15 +1,15 @@
 import { Router } from 'express'
 import controller from '../controllers/excercises.controller'
 import { auth } from '../passport'
-import { userIsAdmin } from '../helper'
+import { iDValidator, paginationValidator, userIsAdmin } from '../helper'
 
 export const ExerciseRouter = Router()
 
-ExerciseRouter.get('/', controller.index)
+ExerciseRouter.get('/', paginationValidator, controller.index)
 ExerciseRouter.post('/', auth, userIsAdmin, controller.create)
-ExerciseRouter.get('/:id', controller.show)
-ExerciseRouter.put('/:id', auth, userIsAdmin, controller.update)
-ExerciseRouter.delete('/:id', auth, userIsAdmin, controller.destroy)
+ExerciseRouter.get('/:id', iDValidator, controller.show)
+ExerciseRouter.put('/:id', iDValidator, auth, userIsAdmin, controller.update)
+ExerciseRouter.delete('/:id', iDValidator, auth, userIsAdmin, controller.destroy)
 ExerciseRouter.get('/search/:name', controller.search)
 
 /**

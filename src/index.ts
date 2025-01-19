@@ -47,10 +47,9 @@ app.use((_req: Request, res: Response) => {
 })
 
 app.use((err: any, req: Request, res: Response, _next: NextFunction) => {
-  const statusCode = res.statusCode || 500
   const field = err.field || 'error'
 
-  res.status(statusCode).json({ code: statusCode, field, message: err.message })
+  res.status(500).json({ field, message: err.message })
 })
 
 sequelize.sync()
@@ -59,5 +58,5 @@ console.log('Sync database', 'postgresql://localhost:5432/fitness_app')
 
 app.listen(8000, (err: any) => {
   if (err) throw new Error(err)
-  console.log('Server started at port 8000')
+  console.log('Server started at port 8000 (http://localhost:8000/api-docs)')
 })
