@@ -9,12 +9,12 @@ error:
  program_not_found: Program not found
  nonrights: You don't have rights to do this
  invalid_refresh_token: Invalid refresh token
- email_required: error.email_required
- email_invalid: error.email_invalid
- role_invalid: error.role_invalid
- refresh_token_required: error.refresh_token_required
- page_invalid: error.page_invalid
- must_be_int: error.must_be_int
+ email_required: Email is required
+ email_invalid: Email is invalid
+ role_invalid: Role is invalid
+ refresh_token_required: Refresh token is required
+ page_invalid: Page is invalid
+ must_be_int: Must be an integer
 programs:
  index: List of programs
  show: Show program
@@ -25,6 +25,10 @@ user_created: User created
 login_success: Logged in successfully
 profile:
  me: My profile
+ initialize_exercise: Initialize exercise
+ open_exercises: Open exercises
+ finished_exercises: Finished exercises
+ finish_exercise: Finish exercise
 exercises:
  show: Exercise details
  updated: Exercise updated
@@ -36,3 +40,8 @@ users:
  show: Show user
  updated: User updated
 refreshed: Token refreshed
+exercise:
+ not_found: Exercise not found
+track:
+ not_found: Track not found
+ already_finished: You have already finished this track

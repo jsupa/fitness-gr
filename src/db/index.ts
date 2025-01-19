@@ -9,6 +9,7 @@ import { Sequelize } from 'sequelize'
 import defineExercise from './exercise'
 import defineProgram from './program'
 import defineUser from './user'
+import defineTrack from './track'
 
 import config from '../config'
 const { database, username, password, host, logging } = config.db
@@ -26,6 +27,7 @@ const modelsBuilder = (instance: Sequelize) => ({
   Exercise: defineExercise(instance),
   Program: defineProgram(instance),
   User: defineUser(instance),
+  Track: defineTrack(instance),
 })
 
 const models = modelsBuilder(sequelize)

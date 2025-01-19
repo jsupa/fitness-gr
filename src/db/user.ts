@@ -18,6 +18,7 @@ export class UserModel extends Model {
   encryptedPassword!: String
 
   static findByEmail: (email: string, password: string) => Promise<UserModel | null>
+  static associate: (models: any) => void
 }
 
 export default (sequelize: Sequelize) => {
@@ -70,6 +71,12 @@ export default (sequelize: Sequelize) => {
   )
 
   return UserModel
+}
+
+UserModel.associate = (models: any) => {
+  UserModel.hasMany(models.Track, {
+    foreignKey: { name: 'userID', allowNull: false },
+  })
 }
 
 // user.findByEmail(email, password)
