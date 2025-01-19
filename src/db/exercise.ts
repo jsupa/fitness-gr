@@ -6,11 +6,11 @@ import { ProgramModel } from './program'
 import { EXERCISE_DIFFICULTY } from '../utils/enums'
 
 export class ExerciseModel extends Model {
-  id: number
-  difficulty: EXERCISE_DIFFICULTY
-  name: String
+  id!: number
+  difficulty!: EXERCISE_DIFFICULTY
+  name!: String
 
-  program: ProgramModel
+  program!: ProgramModel
   static associate: (models: any) => void
 }
 

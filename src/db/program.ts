@@ -6,11 +6,11 @@ import { Model } from 'sequelize'
 import { ExerciseModel } from './exercise'
 
 export class ProgramModel extends Model {
-  id: number
+  id!: number
   // difficulty: EXERCISE_DIFFICULTY
-  name: String
+  name!: String
 
-  exercises: ExerciseModel[]
+  exercises!: ExerciseModel[]
   static associate: (models: any) => void
 }
 

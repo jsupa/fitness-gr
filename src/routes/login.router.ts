@@ -14,6 +14,13 @@ LoginRouter.post('/register', controller.register)
  *   security: []
  *   summary: Login
  *   description: User login
+ *   parameters:
+ *    - in: header
+ *      name: Accept-Language
+ *      required: true
+ *      schema:
+ *        type: string
+ *        enum: [en, sk]
  *   requestBody:
  *    description: User object
  *    required: true
@@ -40,6 +47,13 @@ LoginRouter.post('/register', controller.register)
  *   security: []
  *   summary: Register
  *   description: Register new user
+ *   parameters:
+ *    - in: header
+ *      name: Accept-Language
+ *      required: true
+ *      schema:
+ *        type: string
+ *        enum: [en, sk]
  *   requestBody:
  *    description: User object
  *    required: true

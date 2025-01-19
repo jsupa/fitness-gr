@@ -8,14 +8,14 @@ import crypto from 'crypto'
 import config from '../config'
 
 export class UserModel extends Model {
-  id: number
-  name: String
-  surname: String
-  nickName: String
-  email: String
-  age: number
-  role: String
-  encryptedPassword: String
+  id!: number
+  name!: String
+  surname!: String
+  nickName!: String
+  email!: String
+  age!: number
+  role!: String
+  encryptedPassword!: String
 
   static findByEmail: (email: string, password: string) => Promise<UserModel | null>
 }

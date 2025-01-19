@@ -7,14 +7,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "tsx watch src/index.ts",
-    "start": "cross-env TS_NODE_FILES=true TS_NODE_TRANSPILE_ONLY=true node -r ts-node/register src/index.ts",
     "seed": "tsx src/seed.ts"
   },
   "author": "richard.solar@goodrequest.com",
   "license": "ISC",
   "dependencies": {
     "@faker-js/faker": "^9.4.0",
-    "@tsconfig/node21": "^21.0.3",
     "@types/express": "5.0.0",
     "@types/node": "^14.18.63",
     "@types/validator": "^13.12.2",
@@ -38,6 +36,7 @@
     "yaml": "^2.7.0"
   },
   "devDependencies": {
+    "@tsconfig/node22": "^22.0.0",
     "@types/i18n": "^0.13.12",
     "@types/jsonwebtoken": "^9.0.7",
     "@types/passport": "^1.0.17",
@@ -50,6 +49,8 @@
     "eslint-config-prettier": "^10.0.1",
     "eslint-plugin-prettier": "^5.2.2",
     "prettier": "^3.4.2",
-    "sequelize-cli": "^6.6.2"
+    "sequelize-cli": "^6.6.2",
+    "tsup": "^8.3.5",
+    "typescript-transform-paths": "^3.5.3"
   }
 }

@@ -19,6 +19,13 @@ ProgramRouter.delete('/:id', auth, userIsAdmin, controller.destroy)
  *   security: []
  *   summary: Programs
  *   description: Get all programs
+ *   parameters:
+ *    - in: header
+ *      name: Accept-Language
+ *      required: true
+ *      schema:
+ *        type: string
+ *        enum: [en, sk]
  *   responses:
  *     200:
  *       description: Success
@@ -28,6 +35,13 @@ ProgramRouter.delete('/:id', auth, userIsAdmin, controller.destroy)
  *    - bearerAuth: []
  *   summary: Create a program only by admin
  *   description: Create a program
+ *   parameters:
+ *    - in: header
+ *      name: Accept-Language
+ *      required: true
+ *      schema:
+ *        type: string
+ *        enum: [en, sk]
  *   requestBody:
  *    description: Program object
  *    required: true
@@ -51,6 +65,12 @@ ProgramRouter.delete('/:id', auth, userIsAdmin, controller.destroy)
  *   summary: Get a program
  *   description: Get a program by ID
  *   parameters:
+ *    - in: header
+ *      name: Accept-Language
+ *      required: true
+ *      schema:
+ *        type: string
+ *        enum: [en, sk]
  *    - name: id
  *      in: path
  *      description: ID of the program
@@ -66,6 +86,12 @@ ProgramRouter.delete('/:id', auth, userIsAdmin, controller.destroy)
  *   summary: Update a program only by admin
  *   description: Update a program by ID
  *   parameters:
+ *    - in: header
+ *      name: Accept-Language
+ *      required: true
+ *      schema:
+ *        type: string
+ *        enum: [en, sk]
  *    - name: id
  *      in: path
  *      description: ID of the program
@@ -93,6 +119,12 @@ ProgramRouter.delete('/:id', auth, userIsAdmin, controller.destroy)
  *   summary: Archive a program only by admin
  *   description: Archive a program by ID
  *   parameters:
+ *    - in: header
+ *      name: Accept-Language
+ *      required: true
+ *      schema:
+ *        type: string
+ *        enum: [en, sk]
  *    - name: id
  *      in: path
  *      description: ID of the program

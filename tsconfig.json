@@ -1,14 +1,18 @@
 {
-  "extends": "@tsconfig/node21/tsconfig.json",
+  "extends": "@tsconfig/node22/tsconfig.json",
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext",
-    "verbatimModuleSyntax": true,
-    "allowJs": true,
-    "resolveJsonModule": true,
-    "moduleDetection": "force",
+    // "verbatimModuleSyntax": true,
+    // "allowJs": true,
+    // "resolveJsonModule": true,
+    // "moduleDetection": "force",
     "outDir": "dist",
-    "noUncheckedIndexedAccess": true,
-    "moduleResolution": "Bundler"
+    // "noUncheckedIndexedAccess": true,
+    "moduleResolution": "bundler",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "rootDir": "src",
   }
 }

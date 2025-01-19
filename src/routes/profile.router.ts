@@ -16,6 +16,13 @@ ProfileRouter.get('/me', auth, controller.me)
  *    - bearerAuth: []
  *   summary: Me
  *   description: Get user profile
+ *   parameters:
+ *    - in: header
+ *      name: Accept-Language
+ *      required: true
+ *      schema:
+ *        type: string
+ *        enum: [en, sk]
  *   responses:
  *     200:
  *       description: Success

@@ -19,6 +19,13 @@ UsersRouter.put('/:id', auth, userIsAdmin, controller.update)
  *    - bearerAuth: []
  *   summary: Users
  *   description: Get users
+ *   parameters:
+ *    - in: header
+ *      name: Accept-Language
+ *      required: true
+ *      schema:
+ *        type: string
+ *        enum: [en, sk]
  *   responses:
  *     200:
  *       description: Success
@@ -36,6 +43,12 @@ UsersRouter.put('/:id', auth, userIsAdmin, controller.update)
  *      required: true
  *      schema:
  *        type: integer
+ *    - in: header
+ *      name: Accept-Language
+ *      required: true
+ *      schema:
+ *        type: string
+ *        enum: [en, sk]
  *   responses:
  *     200:
  *       description: Success
@@ -50,6 +63,12 @@ UsersRouter.put('/:id', auth, userIsAdmin, controller.update)
  *    - in: path
  *      name: id
  *      required: true
+ *    - in: header
+ *      name: Accept-Language
+ *      required: true
+ *      schema:
+ *        type: string
+ *        enum: [en, sk]
  *   requestBody:
  *    description: user object
  *    required: true

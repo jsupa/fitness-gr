@@ -19,6 +19,13 @@ ExerciseRouter.delete('/:id', auth, userIsAdmin, controller.destroy)
  *   security: []
  *   summary: Get all exercises
  *   description: Get all exercises
+ *   parameters:
+ *    - in: header
+ *      name: Accept-Language
+ *      required: true
+ *      schema:
+ *        type: string
+ *        enum: [en, sk]
  *   responses:
  *     200:
  *       description: Success
@@ -28,6 +35,13 @@ ExerciseRouter.delete('/:id', auth, userIsAdmin, controller.destroy)
  *    - bearerAuth: []
  *   summary: Create a exercise only by admin
  *   description: Create a exercise
+ *   parameters:
+ *    - in: header
+ *      name: Accept-Language
+ *      required: true
+ *      schema:
+ *        type: string
+ *        enum: [en, sk]
  *   requestBody:
  *    description: exercise object
  *    required: true
@@ -75,6 +89,12 @@ ExerciseRouter.delete('/:id', auth, userIsAdmin, controller.destroy)
  *   summary: Update a exercise only by admin
  *   description: Update a exercise by ID
  *   parameters:
+ *    - in: header
+ *      name: Accept-Language
+ *      required: true
+ *      schema:
+ *        type: string
+ *        enum: [en, sk]
  *    - name: id
  *      in: path
  *      description: ID of the exercise
@@ -107,6 +127,12 @@ ExerciseRouter.delete('/:id', auth, userIsAdmin, controller.destroy)
  *   summary: Archive a exercise only by admin
  *   description: Archive a exercise by ID
  *   parameters:
+ *    - in: header
+ *      name: Accept-Language
+ *      required: true
+ *      schema:
+ *        type: string
+ *        enum: [en, sk]
  *    - name: id
  *      in: path
  *      description: ID of the exercise
