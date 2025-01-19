@@ -24,6 +24,7 @@ exercises:
  updated: exercises.updated
  created: exercises.created
  index: exercises.index
+ search: exercises.search
 users:
  index: users.index
  show: users.show

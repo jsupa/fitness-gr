@@ -1,12 +1,17 @@
 import type { Request, Response } from 'express'
 
 import { models } from '../db'
+import { Op } from 'sequelize'
 
 const { Program, Exercise } = models
 
-const index = async (_req: Request, res: Response) => {
+const index = async (req: Request, res: Response) => {
+  const { page = 1, limit = 10 } = req.query
+
   const exercises = await Exercise.findAll({
     include: [{ model: Program, as: 'program' }],
+    limit: Number(limit),
+    offset: (Number(page) - 1) * Number(limit),
   })
 
   res.json({
@@ -83,4 +88,19 @@ const destroy = async (req: Request, res: Response) => {
   })
 }
 
-export default { index, create, show, update, destroy }
+const search = async (req: Request, res: Response) => {
+  const { name } = req.params
+
+  if (!name) throw new Error('error.invalid_name'.t)
+
+  const exercises = await Exercise.findAll({
+    where: { name: { [Op.like]: `%${name}%` } },
+  })
+
+  res.json({
+    data: exercises,
+    message: 'exercises.search'.t,
+  })
+}
+
+export default { index, create, show, update, destroy, search }

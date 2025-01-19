@@ -10,6 +10,7 @@ ExerciseRouter.post('/', auth, userIsAdmin, controller.create)
 ExerciseRouter.get('/:id', controller.show)
 ExerciseRouter.put('/:id', auth, userIsAdmin, controller.update)
 ExerciseRouter.delete('/:id', auth, userIsAdmin, controller.destroy)
+ExerciseRouter.get('/search/:name', controller.search)
 
 /**
  * @openapi
@@ -17,7 +18,7 @@ ExerciseRouter.delete('/:id', auth, userIsAdmin, controller.destroy)
  *  get:
  *   tags: [Exercise]
  *   security: []
- *   summary: Get all exercises
+ *   summary: Get all exercises with pagination
  *   description: Get all exercises
  *   parameters:
  *    - in: header
@@ -26,6 +27,16 @@ ExerciseRouter.delete('/:id', auth, userIsAdmin, controller.destroy)
  *      schema:
  *        type: string
  *        enum: [en, sk]
+ *    - in: query
+ *      name: page
+ *      schema:
+ *        type: integer
+ *        default: 1
+ *    - in: query
+ *      name: limit
+ *      schema:
+ *        type: integer
+ *        default: 10
  *   responses:
  *     200:
  *       description: Success
@@ -140,4 +151,19 @@ ExerciseRouter.delete('/:id', auth, userIsAdmin, controller.destroy)
  *   responses:
  *     200:
  *      description: Success
+ *
+ * /exercises/search/{name}:
+ *  get:
+ *   tags: [Exercise]
+ *   security: []
+ *   summary: Search exercises
+ *   description: Search exercises by name
+ *   parameters:
+ *    - name: name
+ *      in: path
+ *      description: Name of the exercise
+ *      required: true
+ *   responses:
+ *     200:
+ *       description: Success
  */
