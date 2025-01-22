@@ -1,0 +1,47 @@
+error:
+ "404": Page not found
+ password_required: Password is required
+ password_too_short: Password is too short (minimum is 8 characters)
+ invalid_credentials: Invalid credentials
+ unauthorized: Unauthorized
+ not_found: Not found
+ invalid_data: Invalid data
+ program_not_found: Program not found
+ nonrights: You don't have rights to do this
+ invalid_refresh_token: Invalid refresh token
+ email_required: Email is required
+ email_invalid: Email is invalid
+ role_invalid: Role is invalid
+ refresh_token_required: Refresh token is required
+ page_invalid: Page is invalid
+ must_be_int: Must be an integer
+programs:
+ index: List of programs
+ show: Show program
+ updated: Program updated
+ destroyed: Program destroyed
+ created: Program created
+user_created: User created
+login_success: Logged in successfully
+profile:
+ me: My profile
+ initialize_exercise: Initialize exercise
+ open_exercises: Open exercises
+ finished_exercises: Finished exercises
+ finish_exercise: Finish exercise
+exercises:
+ show: Exercise details
+ updated: Exercise updated
+ created: Exercise created
+ index: List of exercises
+ search: Search exercises
+users:
+ index: List of users
+ show: Show user
+ updated: User updated
+refreshed: Token refreshed
+exercise:
+ not_found: Exercise not found
+track:
+ not_found: Track not found
+ already_finished: You have already finished this track

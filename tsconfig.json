@@ -1,21 +1,18 @@
 {
-    "compilerOptions": {
-		"esModuleInterop": true,
-        "target": "es6",
-        "module": "commonjs",
-    	"outDir": "./dist",
-		"sourceMap": true,
-        "noImplicitAny": true,
-		"typeRoots" : [
-            "node_modules/@types",
-			"./src/types"
-		],
-		"resolveJsonModule": true
-    },
-    "include": [
-		"./src/**/*"
-	],
-	"exclude": [
-        "node_modules"
-    ]
+  "extends": "@tsconfig/node22/tsconfig.json",
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    // "verbatimModuleSyntax": true,
+    // "allowJs": true,
+    // "resolveJsonModule": true,
+    // "moduleDetection": "force",
+    "outDir": "dist",
+    // "noUncheckedIndexedAccess": true,
+    "moduleResolution": "bundler",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "rootDir": "src",
+  }
 }
